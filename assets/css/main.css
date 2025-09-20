@@ -40,7 +40,7 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f4fafd;
+  --background-color: #ffffff;
   --surface-color: #ffffff;
 }
 
@@ -585,6 +585,9 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #000; /* Project title font color set to black */
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .flip-card-front img {
@@ -603,6 +606,50 @@ section,
 
 
 /*--------------------------------------------------------------
+# Dark Mode Toggle
+--------------------------------------------------------------*/
+.dark-mode-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+}
+
+.dark-mode-toggle button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.dark-mode-toggle button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  --background-color: #0a0a0a;
+  --default-color: #e0e0e0;
+  --heading-color: #ffffff;
+  --surface-color: #1a1a1a;
+  --contrast-color: #ffffff;
+  --nav-color: #a8a9b4;
+  --nav-hover-color: #ffffff;
+}
+
+/* Dark mode overrides for light-background sections */
+body.dark-mode .light-background {
+  --background-color: #0a0a0a;
+  --surface-color: #1a1a1a;
+  --default-color: #e0e0e0;
+  --heading-color: #ffffff;
+}
+
+/*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
@@ -613,6 +660,7 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .hero img {
@@ -623,35 +671,89 @@ section,
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.hero:hover img {
+  transform: scale(1.02);
 }
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 70%);
+  background: linear-gradient(135deg, 
+    rgba(4, 11, 20, 0.8) 0%, 
+    rgba(4, 11, 20, 0.6) 50%, 
+    rgba(4, 11, 20, 0.4) 100%);
   position: absolute;
   inset: 0;
   z-index: 2;
+  transition: opacity 0.3s ease;
 }
 
 .hero .container {
   position: relative;
   z-index: 3;
+  text-align: left;
 }
 
-.hero h2 {
-  margin: 0;
-  font-size: 64px;
-  font-weight: 700;
+/* Professional Hero Typography */
+.hero-greeting {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 10px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-.hero p {
-  margin: 5px 0 0 0;
-  font-size: 26px;
+.hero-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #149ddd 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 20px rgba(20, 157, 221, 0.3);
+  letter-spacing: -1px;
 }
 
-.hero p span {
+.hero-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 40px 0;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+.hero-resume-btn {
+  margin-top: 30px;
+}
+
+.hero-resume-btn .btn {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  padding: 12px 30px;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  text-transform: uppercase;
   letter-spacing: 1px;
-  border-bottom: 2px solid var(--accent-color);
+}
+
+.hero-resume-btn .btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  font-size: 1rem; /* Slightly smaller on hover */
 }
 
 .hero .social-links {
@@ -672,12 +774,26 @@ section,
 }
 
 @media (max-width: 768px) {
-  .hero h2 {
-    font-size: 32px;
+  .hero-greeting {
+    font-size: 18px;
+  }
+  
+  .hero-name {
+    font-size: 48px;
   }
 
-  .hero p {
-    font-size: 20px;
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .hero-resume-btn .btn {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+  
+  .dark-mode-toggle {
+    top: 10px;
+    right: 10px;
   }
 }
 
@@ -709,6 +825,47 @@ section,
   margin-right: 5px;
   color: var(--accent-color);
   line-height: 0;
+}
+
+/* Enhanced About Section Styling */
+.about-intro {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--heading-color);
+}
+
+.about-details {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: var(--default-color);
+}
+
+.about-personal {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: var(--default-color);
+}
+
+.about-connect {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--accent-color);
+  font-style: italic;
+}
+
+/* Dark mode specific styling for about section */
+body.dark-mode .about-intro {
+  color: #ffffff;
+}
+
+body.dark-mode .about-details,
+body.dark-mode .about-personal {
+  color: #e0e0e0;
 }
 
 /*--------------------------------------------------------------
@@ -748,41 +905,513 @@ section,
 # Skills Section
 --------------------------------------------------------------*/
 .skills .progress {
-  height: 60px;
+  height: 50px;
   display: block;
   background: none;
   border-radius: 0;
+  margin-bottom: 15px;
 }
 
 .skills .progress .skill {
   color: var(--heading-color);
   padding: 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
+  margin: 0 0 8px 0;
+  text-transform: none;
   display: block;
-  font-weight: 600;
-  font-family: var(--heading-font);
+  font-weight: 500;
+  font-family: var(--default-font);
+  font-size: 14px;
 }
 
 .skills .progress .skill .val {
   float: right;
   font-style: normal;
+  font-weight: 600;
 }
 
 .skills .progress-bar-wrap {
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .skills .progress-bar {
   width: 1px;
-  height: 10px;
+  height: 8px;
   transition: 0.9s;
-  background-color: var(--accent-color);
+  border-radius: 10px;
+}
+
+/* Skill Category Styling */
+.skill-category {
+  margin-bottom: 30px;
+}
+
+.skill-category-title {
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+}
+
+/* Progress Bar Colors */
+.progress-bar.programming-lang {
+  background: linear-gradient(90deg, #ff6b9d, #ff8fab);
+}
+
+.progress-bar.frontend {
+  background: linear-gradient(90deg, #ff6b9d, #ff8fab);
+}
+
+.progress-bar.database {
+  background: linear-gradient(90deg, #4dabf7, #74c0fc);
+}
+
+.progress-bar.backend {
+  background: linear-gradient(90deg, #4dabf7, #74c0fc);
+}
+
+.progress-bar.dsa {
+  background: linear-gradient(90deg, #4dabf7, #74c0fc);
+}
+
+/* Dark mode specific styling */
+body.dark-mode .skills .progress-bar-wrap {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .skill-category-title {
+  color: #ffffff;
 }
 
 /*--------------------------------------------------------------
-# Resume Section
+# Education Section
+--------------------------------------------------------------*/
+.education {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.education:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.education .container {
+  position: relative;
+  z-index: 2;
+}
+
+.education .section-title h2 {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.education-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.education-icon {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.education-icon i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.education-content {
+  flex: 1;
+}
+
+.education-date {
+  color: #ff6b35;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.education-date .current {
+  background: #ff6b35;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.education-degree {
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.education-institution {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.education-score {
+  color: #27ae60;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Education Illustration */
+.education-illustration {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workspace-setup {
+  position: relative;
+  transform: perspective(1000px) rotateY(-15deg) rotateX(10deg);
+  transform-style: preserve-3d;
+}
+
+.laptop {
+  width: 200px;
+  height: 120px;
+  background: #4dabf7;
+  border-radius: 10px;
+  position: relative;
+  transform: translateZ(20px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.screen {
+  width: 180px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 8px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  overflow: hidden;
+}
+
+.chart {
+  width: 60px;
+  height: 40px;
+  background: linear-gradient(45deg, #4dabf7, #ffd43b);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border-radius: 4px;
+}
+
+.grid {
+  width: 40px;
+  height: 40px;
+  background-image: 
+    linear-gradient(#4dabf7 1px, transparent 1px),
+    linear-gradient(90deg, #4dabf7 1px, transparent 1px);
+  background-size: 8px 8px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 4px;
+}
+
+.cup {
+  width: 30px;
+  height: 40px;
+  background: #4dabf7;
+  border-radius: 15px 15px 5px 5px;
+  position: absolute;
+  top: -60px;
+  left: 220px;
+  transform: translateZ(15px);
+}
+
+.tea-bag {
+  width: 8px;
+  height: 12px;
+  background: #ffd43b;
+  border-radius: 4px;
+  position: absolute;
+  top: -8px;
+  left: 11px;
+}
+
+.document {
+  width: 80px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 5px;
+  position: absolute;
+  top: 20px;
+  left: 240px;
+  transform: translateZ(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.lines {
+  width: 60px;
+  height: 80px;
+  background-image: 
+    linear-gradient(#4dabf7 1px, transparent 1px);
+  background-size: 100% 8px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.mouse {
+  width: 25px;
+  height: 15px;
+  background: linear-gradient(45deg, #ffd43b, #4dabf7);
+  border-radius: 12px 12px 8px 8px;
+  position: absolute;
+  top: 40px;
+  left: 320px;
+  transform: translateZ(5px);
+}
+
+.coaster {
+  width: 40px;
+  height: 40px;
+  background: #ffd43b;
+  border-radius: 50%;
+  position: absolute;
+  top: -40px;
+  left: 210px;
+  transform: translateZ(5px);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .education {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+body.dark-mode .education-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .education-degree {
+  color: #ffffff;
+}
+
+body.dark-mode .education-institution {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/*--------------------------------------------------------------
+# Achievements Section
+--------------------------------------------------------------*/
+.achievements {
+  background: var(--background-color);
+  color: var(--default-color);
+}
+
+.achievement-category {
+  margin-bottom: 40px;
+}
+
+.achievement-category-title {
+  font-family: var(--heading-font);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent-color);
+  display: flex;
+  align-items: center;
+}
+
+.achievement-category-title i {
+  color: var(--accent-color);
+  font-size: 20px;
+}
+
+.achievement-card {
+  background: var(--surface-color);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-color: var(--accent-color);
+}
+
+.achievement-card:hover::before {
+  width: 6px;
+}
+
+.achievement-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-icon i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.achievement-icon.leadership {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.achievement-icon.internship {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.achievement-icon.certificate {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.achievement-content {
+  flex: 1;
+}
+
+.achievement-title {
+  color: var(--heading-color);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.achievement-date {
+  color: var(--accent-color);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.achievement-description {
+  color: var(--default-color);
+  font-size: 15px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Dark mode specific styling */
+body.dark-mode .achievement-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .achievement-card:hover {
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .achievement-title {
+  color: #ffffff;
+}
+
+body.dark-mode .achievement-description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .achievement-card {
+    padding: 20px;
+  }
+  
+  .achievement-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+  
+  .achievement-icon i {
+    font-size: 20px;
+  }
+  
+  .achievement-title {
+    font-size: 16px;
+  }
+  
+  .achievement-description {
+    font-size: 14px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Resume Section (Legacy - kept for reference)
 --------------------------------------------------------------*/
 .resume .resume-title {
   color: var(--heading-color);
@@ -1154,16 +1783,22 @@ section,
   color: var(--contrast-color);
 }
 
+/* Make contact form container same width as info-wrap */
 .contact .php-email-form {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
   background-color: var(--surface-color);
   height: 100%;
   padding: 30px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 575px) {
-  .contact .php-email-form {
-    padding: 20px;
+@media (max-width: 991px) {
+  .contact .php-email-form,
+  .contact .info-wrap {
+    max-width: 100%;
   }
 }
 
