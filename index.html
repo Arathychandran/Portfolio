@@ -486,7 +486,7 @@
 
 </section><!-- /Achievements Section -->
 
-    <section id="projects" class="projects section py-5">
+<section id="projects" class="projects section py-5">
   <div class="container section-title text-center mb-5" data-aos="fade-up">
     <h2>Projects</h2>
     <p>Here are a few of the solutions I’ve built using AI and full-stack technologies. Click a project to learn more.</p>
@@ -495,22 +495,19 @@
   <div class="container">
     <div class="row gy-4 justify-content-center">
 
-      <!-- Project Card Template -->
-      <!-- Repeat for each project -->
-
+      <!-- Project 1 -->
       <div class="col-md-4 project-card-container">
-        <div class="flip-card">
+        <div class="flip-card" style="--bg-image: url('assets\img\projects\sign.png');">
           <div class="flip-card-inner">
-            <div class="flip-card-front d-flex align-items-center justify-content-center" style="font-size:1.5rem; font-weight:600;">
-              SignAssist
+            <div class="flip-card-front">
+              <span class="project-title">SignAssist</span>
             </div>
-            <div class="flip-card-back" style="color: #000;">
+            <div class="flip-card-back">
               <h5>SignAssist</h5>
               <p>Real-time translator between voice and sign language with emotion detection.</p>
               <p><strong>Tech:</strong> Python, Flask, DeepFace</p>
               <div>
                 <a href="https://github.com/Arathychandran/react-firebase-chat-completed" target="_blank" class="btn btn-sm btn-outline-dark me-2">GitHub</a>
-                <!-- <a href="#" class="btn btn-sm btn-outline-primary disabled">Live Demo</a> -->
               </div>
             </div>
           </div>
@@ -519,18 +516,17 @@
 
       <!-- Project 2 -->
       <div class="col-md-4 project-card-container">
-        <div class="flip-card">
+        <div class="flip-card" style="--bg-image: url('https://images.unsplash.com/photo-1581090700227-1e37b190418e');">
           <div class="flip-card-inner">
-            <div class="flip-card-front d-flex align-items-center justify-content-center" style="font-size:1.5rem; font-weight:600;">
-              AntibioGuard
+            <div class="flip-card-front">
+              <span class="project-title">AntibioGuard</span>
             </div>
-            <div class="flip-card-back" style="color: #000;">
+            <div class="flip-card-back">
               <h5>AntibioGuard</h5>
               <p>ML-powered tool to guide antibiotic prescriptions and reduce AMR.</p>
               <p><strong>Tech:</strong> TensorFlow, XGBoost</p>
               <div>
                 <a href="https://github.com/Arathychandran/antibioguard/tree/main" target="_blank" class="btn btn-sm btn-outline-dark me-2">GitHub</a>
-                <!-- <a href="#" class="btn btn-sm btn-outline-primary disabled">Live Demo</a> -->
               </div>
             </div>
           </div>
@@ -539,75 +535,89 @@
 
       <!-- Project 3 -->
       <div class="col-md-4 project-card-container">
-        <div class="flip-card">
+        <div class="flip-card" style="--bg-image: url('https://images.unsplash.com/photo-1556228720-195a672e6ec9');">
           <div class="flip-card-inner">
-            <div class="flip-card-front d-flex align-items-center justify-content-center" style="font-size:1.5rem; font-weight:600;">
-              Skincare Hub
+            <div class="flip-card-front">
+              <span class="project-title">Skincare Hub</span>
             </div>
-            <div class="flip-card-back" style="color: #000;">
+            <div class="flip-card-back">
               <h5>Skincare Hub</h5>
               <p>Personalized skincare planner with routine tracking and recommendations.</p>
               <p><strong>Tech:</strong> Flask, JS, MySQL</p>
               <div>
                 <a href="https://github.com/Arathychandran/Glow/tree/main" target="_blank" class="btn btn-sm btn-outline-dark me-2">GitHub</a>
-                <!-- <a href="#" class="btn btn-sm btn-outline-primary disabled">Live Demo</a> -->
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Hidden projects -->
-      <div id="extra-projects" style="display: none;" class="row gy-4 justify-content-center mt-4">
-
-        <div class="col-md-4 project-card-container">
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front d-flex align-items-center justify-content-center" style="font-size:1.5rem; font-weight:600;">
-                Dieto
-              </div>
-              <div class="flip-card-back" style="color: #000;">
-                <h5>Dieto</h5>
-                <p>Diet and goal tracker with custom meal plans and analytics.</p>
-                <p><strong>Tech:</strong> Flask, SQLite</p>
-                <div>
-                  <a href="https://github.com/Arathychandran/DIETO" target="_blank" class="btn btn-sm btn-outline-dark me-2">GitHub</a>
-                  <!-- <a href="#" class="btn btn-sm btn-outline-primary disabled">Live Demo</a> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 project-card-container">
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front d-flex align-items-center justify-content-center" style="font-size:1.5rem; font-weight:600;">
-                SDG HelpHub
-              </div>
-              <div class="flip-card-back" style="color: #000;">
-                <h5>SDG HelpHub</h5>
-                <p>UN-aligned donation portal to promote impactful giving.</p>
-                <p><strong>Tech:</strong> HTML, Bootstrap, MySQL</p>
-                <div>
-                  <a href="https://github.com/Arathychandran/SDGHHH" target="_blank" class="btn btn-sm btn-outline-dark me-2">GitHub</a>
-                  <!-- <a href="#" class="btn btn-sm btn-outline-primary disabled">Live Demo</a> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Toggle Button -->
-      <div class="text-center mt-4">
-        <button id="toggleProjects" class="btn btn-outline-secondary btn-sm">See All Projects</button>
       </div>
 
     </div>
+
+    <!-- Hidden Projects -->
+    <div id="extra-projects" class="row gy-4 justify-content-center mt-4" style="display: none;">
+      <!-- Project 4 -->
+      <div class="col-md-4 project-card-container">
+        <div class="flip-card" style="--bg-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d');">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="project-title">Dieto</span>
+            </div>
+            <div class="flip-card-back">
+              <h5>Dieto</h5>
+              <p>Diet and goal tracker with custom meal plans and analytics.</p>
+              <p><strong>Tech:</strong> Flask, SQLite</p>
+              <div>
+                <a href="https://github.com/Arathychandran/DIETO" target="_blank" class="btn btn-sm btn-outline-dark me-2">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="col-md-4 project-card-container">
+        <div class="flip-card" style="--bg-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="project-title">SDG HelpHub</span>
+            </div>
+            <div class="flip-card-back">
+              <h5>SDG HelpHub</h5>
+              <p>UN-aligned donation portal to promote impactful giving.</p>
+              <p><strong>Tech:</strong> HTML, Bootstrap, MySQL</p>
+              <div>
+                <a href="https://github.com/Arathychandran/SDGHHH" target="_blank" class="btn btn-sm btn-outline-dark me-2">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toggle Button -->
+    <div class="text-center mt-4">
+      <button id="toggleProjects" class="btn btn-outline-secondary btn-sm">See All Projects</button>
+    </div>
   </div>
 </section>
+
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.getElementById("toggleProjects");
+  const extraProjects = document.getElementById("extra-projects");
+  let isVisible = false;
+
+  toggleBtn.addEventListener("click", function () {
+    isVisible = !isVisible;
+    extraProjects.style.display = isVisible ? "flex" : "none";
+    toggleBtn.textContent = isVisible ? "Show Less" : "See All Projects";
+  });
+});
+</script>
+
+
+
 
 
     <!-- Testimonials Section -->

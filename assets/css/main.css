@@ -1971,3 +1971,87 @@ body.dark-mode .achievement-description {
 .starter-section {
   /* Add your styles here */
 }
+
+
+.projects {
+  background: #fafafa;
+  font-family: "Poppins", sans-serif;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 280px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  padding: 15px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-back {
+  background: #ffffff;
+  color: #000;
+  transform: rotateY(180deg);
+  border: 1px solid #ddd;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+}
+
+.btn-outline-dark {
+  font-size: 0.9rem;
+}
+
+#toggleProjects {
+  transition: all 0.3s ease;
+}
+
+#toggleProjects:hover {
+  background-color: #444;
+  color: #fff;
+}
