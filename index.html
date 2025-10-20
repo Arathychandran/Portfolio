@@ -497,13 +497,13 @@
 
       <!-- Project 1 -->
       <div class="col-md-4 project-card-container">
-        <div class="flip-card" style="--bg-image: url('assets\img\projects\sign.png');">
+        <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <span class="project-title">SignAssist</span>
+            <div class="flip-card-front" style="background-image: url('assets/img/projects/sign.png'); background-size: cover; background-position: center;">
+              <span class="project-title">SignAssist</span> <!-- will be hidden on front via CSS -->
             </div>
             <div class="flip-card-back">
-              <h5>SignAssist</h5>
+              <h5 class="project-title-back">SignAssist</h5> <!-- Title shown here, just above details -->
               <p>Real-time translator between voice and sign language with emotion detection.</p>
               <p><strong>Tech:</strong> Python, Flask, DeepFace</p>
               <div>
@@ -516,13 +516,13 @@
 
       <!-- Project 2 -->
       <div class="col-md-4 project-card-container">
-        <div class="flip-card" style="--bg-image: url('https://images.unsplash.com/photo-1581090700227-1e37b190418e');">
+        <div class="flip-card" style="--bg-image: url('C:\Users\aswat\Desktop\arathy\ArathyPortfolio\assets\img\projects\antibio.png');">
           <div class="flip-card-inner">
-            <div class="flip-card-front">
+            <div class="flip-card-front" style="background-image: url('assets/img/projects/antibio.png');background-size: cover; background-position: center;">
               <span class="project-title">AntibioGuard</span>
             </div>
             <div class="flip-card-back">
-              <h5>AntibioGuard</h5>
+              <h5 class="project-title-back">AntibioGuard</h5>
               <p>ML-powered tool to guide antibiotic prescriptions and reduce AMR.</p>
               <p><strong>Tech:</strong> TensorFlow, XGBoost</p>
               <div>
@@ -537,11 +537,11 @@
       <div class="col-md-4 project-card-container">
         <div class="flip-card" style="--bg-image: url('https://images.unsplash.com/photo-1556228720-195a672e6ec9');">
           <div class="flip-card-inner">
-            <div class="flip-card-front">
+             <div class="flip-card-front" style="background-image: url('assets/img/projects/glow.png');background-size: cover; background-position: center;">
               <span class="project-title">Skincare Hub</span>
             </div>
             <div class="flip-card-back">
-              <h5>Skincare Hub</h5>
+              <h5 class="project-title-back">Skincare Hub</h5>
               <p>Personalized skincare planner with routine tracking and recommendations.</p>
               <p><strong>Tech:</strong> Flask, JS, MySQL</p>
               <div>
@@ -560,11 +560,11 @@
       <div class="col-md-4 project-card-container">
         <div class="flip-card" style="--bg-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d');">
           <div class="flip-card-inner">
-            <div class="flip-card-front">
+             <div class="flip-card-front" style="background-image: url('assets/img/projects/dieto.png');background-size: cover; background-position: center;">
               <span class="project-title">Dieto</span>
             </div>
             <div class="flip-card-back">
-              <h5>Dieto</h5>
+              <h5 class="project-title-back">Dieto</h5>
               <p>Diet and goal tracker with custom meal plans and analytics.</p>
               <p><strong>Tech:</strong> Flask, SQLite</p>
               <div>
@@ -583,7 +583,7 @@
               <span class="project-title">SDG HelpHub</span>
             </div>
             <div class="flip-card-back">
-              <h5>SDG HelpHub</h5>
+              <h5 class="project-title-back">SDG HelpHub</h5>
               <p>UN-aligned donation portal to promote impactful giving.</p>
               <p><strong>Tech:</strong> HTML, Bootstrap, MySQL</p>
               <div>
